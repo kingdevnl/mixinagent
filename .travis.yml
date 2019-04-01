@@ -1,0 +1,26 @@
+language: java
+
+sudo: false
+
+notifications:
+  email: false
+
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+
+jdk:
+  - oraclejdk8
+
+before_install:
+  - chmod +x gradlew
+
+
+# Build the Project.
+script:
+  - ./gradlew build -S
+
+
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lockó
