@@ -52,6 +52,7 @@ public class MixinAgentBootstrap {
 
     public static void premain(String ops, Instrumentation instrumentation) {
 
+        LOGGER.info("MixinAgent V1");
         MixinBootstrap.getPlatform().inject();
         MixinBootstrap.init();
 
