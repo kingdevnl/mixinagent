@@ -52,7 +52,7 @@ public class MixinAgentBootstrap {
 
     public static void premain(String ops, Instrumentation instrumentation) {
 
-        LOGGER.info("MixinAgent V1");
+        System.out.println("MixinAgent V1");
         MixinBootstrap.getPlatform().inject();
         MixinBootstrap.init();
 
@@ -80,12 +80,14 @@ public class MixinAgentBootstrap {
     }
 
     private static void gotoPhase(MixinEnvironment.Phase phase) {
+     System.out.println("GotoPhase "+phase.toString());
         try {
+
             Method gotoPhase = MixinEnvironment.class.getDeclaredMethod("gotoPhase", MixinEnvironment.Phase.class);
             gotoPhase.setAccessible(true);
             gotoPhase.invoke(null, phase);
         } catch (Throwable t) {
-            LOGGER.error("Failed to switch mixin phase", t);
+          t.printStackTrace();
         }
     }
 
@@ -122,7 +124,7 @@ public class MixinAgentBootstrap {
                 constructor.setAccessible(true);
                 return constructor.newInstance();
             } catch (Throwable t) {
-                LOGGER.error("Failed to construct mixin transformer", t);
+             t.printStackTrace();
             }
             return new VoidLegacyTransformer();
         }
