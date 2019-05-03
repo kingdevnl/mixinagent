@@ -4,3 +4,11 @@ pipeline:
     commands:
       - chmod +x gradlew
       - ./gradlew build --console plain
+  release:
+    image: plugins/github-release
+    settings:
+      api_key:
+        from_secret: GITHUB_TOKEN
+      title: DevRelease
+      note: DevRelease
+      files: build/libs/*.jar
