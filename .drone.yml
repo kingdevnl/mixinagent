@@ -12,3 +12,5 @@ pipeline:
       title: DevRelease
       note: DevRelease
       files: build/libs/*.jar
+      when:
+        event: tag
