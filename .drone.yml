@@ -1,0 +1,6 @@
+pipeline:
+  build:
+    image: openjdk:8-jdk
+    commands:
+      - chmod +x gradlew
+      - ./gradlew build --console plain
