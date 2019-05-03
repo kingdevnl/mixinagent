@@ -9,7 +9,7 @@ pipeline:
     when:
       event: tag
     settings:
-      api_key:
+      api_key: xxxxxxxx
         from_secret: GITHUB_TOKEN
       title: DevRelease
       note: DevRelease
