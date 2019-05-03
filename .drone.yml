@@ -9,7 +9,8 @@ pipeline:
     settings:
       api_key:
         from_secret: GITHUB_TOKEN
-      files:
-        - build/lib/*.jar
+      title: DevRelease
+      note: DevRelease
+      files: build/libs/*.jar
     when:
       event: tag
