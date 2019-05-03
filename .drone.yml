@@ -6,11 +6,11 @@ pipeline:
       - ./gradlew build --console plain
   release:
     image: plugins/github-release
+    when:
+      event: tag
     settings:
       api_key:
         from_secret: GITHUB_TOKEN
       title: DevRelease
       note: DevRelease
       files: build/libs/*.jar
-    when:
-      event: tag
